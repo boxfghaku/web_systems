@@ -46,7 +46,7 @@ Last Access Time<br><br>
 <?php if ((empty($error))) { ?>
         Add comment by Xiaofeng Bo<br>
 <?php } else { ?>
-        <?=Error: escape1($error)?><br>
+        Error: <?=escape1($error)?><br>
 <?php } ?>
 </body>
 </html>
