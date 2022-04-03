@@ -2,6 +2,7 @@
 $dsn = 'mysql:host=database-boxf.crqmemsomjjy.ap-northeast-1.rds.amazonaws.com;dbname=db_boxf';
 $username = 'svc_user';
 $password = 'Passw0rd';
+$error = '';
 
 // try-catch
 try{
@@ -22,6 +23,7 @@ try{
         $stmtins -> execute();
 
 }catch (Exception $e) {
+        $error = $e->getMessage();
 }
 
 function escape1($str)
@@ -38,10 +40,13 @@ function escape1($str)
 </head>
 <body>
 Last Access Time<br><br>
-<?=escape1($e->getMessage())?><br>
 <?php foreach ($rec as $a):?>
         <?=escape1($a)?><br>
 <?php endforeach; ?>
-Add comment by Xiaofeng Bo
+<?php if ((empty($error))) { ?>
+        Add comment by Xiaofeng Bo<br>
+<?php } else { ?>
+        <?=Error: escape1($error)?><br>
+<?php } ?>
 </body>
 </html>
